@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js"
+    integrity="sha512-yocoLferfPbcwpCMr8v/B0AB4SWpJlouBwgE0D3ZHaiP1nuu5djZclFEIj9znuqghaZ3tdCMRrreLoM8km+jIQ=="
+    crossorigin="anonymous"></script>
+  <title>simple 2048</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <main>
+    <div class="score">
+      <div class="scorelabel">Score: </div>
+      <div id="score"></div><br />
+      <input type="button" onclick="restart()" value="Restart">
+    </div>
+
+    <div id="maingrid">
+      <div class="cell" id="00">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="01">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="02">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="03">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="10">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="11">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="12">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="13">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="20">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="21">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="22">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="23">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="30">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="31">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="32">
+        <div class="cellno"></div>
+      </div>
+      <div class="cell" id="33">
+        <div class="cellno"></div>
+      </div>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+
+</html>
