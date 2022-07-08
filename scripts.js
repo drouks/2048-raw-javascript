@@ -79,7 +79,12 @@ function spawnRandom() {
         }
     }
 
-    if (randpool.length === 0) return; //<===================================GAME ENDING CONDITION
+    if (randpool.length === 0) {
+        alert("You lost!\n Final score: "+score);
+        restart();
+        return; //<===================================GAME ENDING CONDITION
+
+    }
     var randindex = Math.floor(Math.random() * randpool.length);
     var numindex = Math.floor(Math.random() * randnum.length);
 
