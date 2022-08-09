@@ -141,15 +141,17 @@ function removeElementsWithValue(arr, val) { //FUNCTION TO REMOVE EMPTY CELLS
     return arr;
 }
 
-function applyTurn(col) {
+function applyTurn(col,dir) {
 
     var ccol = removeElementsWithValue(col, 0);
+    var animate = [];
 
     for (var i = 0; i < ccol.length; i++) {
         if (ccol[i] > 0 && ccol[i] == ccol[i + 1]) {
             ccol[i] = ccol[i] + ccol[i + 1];
+            animate.push(i+1);
             ccol[i + 1] = 0;
-            score = score + col[i];            
+            score = score + col[i];     
         }
     }
 
@@ -158,6 +160,7 @@ function applyTurn(col) {
     for (var i = ccol.length; i < 5; i++) {
         ccol.push(0);
     }
+
     return ccol;
 }
 
@@ -182,8 +185,8 @@ function advanceTurn(dir) {
 
     
     var saveboard = saveArray(mainboard);
-    console.log('saveboard: \n');
-    console.log(saveboard);
+    // console.log('saveboard: \n');
+    // console.log(saveboard);
 
     if (dir === 'UP') {
         var firstcol = [mainboard[0][0], mainboard[1][0], mainboard[2][0], mainboard[3][0]];
@@ -191,10 +194,10 @@ function advanceTurn(dir) {
         var thirdcol = [mainboard[0][2], mainboard[1][2], mainboard[2][2], mainboard[3][2]];
         var fourthcol = [mainboard[0][3], mainboard[1][3], mainboard[2][3], mainboard[3][3]];
 
-        new1col = applyTurn(firstcol);
-        new2col = applyTurn(secondcol);
-        new3col = applyTurn(thirdcol);
-        new4col = applyTurn(fourthcol);
+        new1col = applyTurn(firstcol,dir);
+        new2col = applyTurn(secondcol,dir);
+        new3col = applyTurn(thirdcol,dir);
+        new4col = applyTurn(fourthcol,dir);
 
         //reapply
         mainboard[0][0] = new1col[0];
@@ -224,10 +227,10 @@ function advanceTurn(dir) {
         var thirdcol = [mainboard[0][2], mainboard[1][2], mainboard[2][2], mainboard[3][2]].reverse();
         var fourthcol = [mainboard[0][3], mainboard[1][3], mainboard[2][3], mainboard[3][3]].reverse();
 
-        new1col = applyTurn(firstcol);
-        new2col = applyTurn(secondcol);
-        new3col = applyTurn(thirdcol);
-        new4col = applyTurn(fourthcol);
+        new1col = applyTurn(firstcol,dir);
+        new2col = applyTurn(secondcol,dir);
+        new3col = applyTurn(thirdcol,dir);
+        new4col = applyTurn(fourthcol,dir);
 
         //reapply
         mainboard[3][0] = new1col[0];
@@ -257,10 +260,10 @@ function advanceTurn(dir) {
         var thirdcol = [mainboard[2][0], mainboard[2][1], mainboard[2][2], mainboard[2][3]];
         var fourthcol = [mainboard[3][0], mainboard[3][1], mainboard[3][2], mainboard[3][3]];
 
-        new1col = applyTurn(firstcol);
-        new2col = applyTurn(secondcol);
-        new3col = applyTurn(thirdcol);
-        new4col = applyTurn(fourthcol);
+        new1col = applyTurn(firstcol,dir);
+        new2col = applyTurn(secondcol,dir);
+        new3col = applyTurn(thirdcol,dir);
+        new4col = applyTurn(fourthcol,dir);
 
         //reapply
         mainboard[0][0] = new1col[0];
@@ -290,10 +293,10 @@ function advanceTurn(dir) {
         var thirdcol = [mainboard[2][3], mainboard[2][2], mainboard[2][1], mainboard[2][0]];
         var fourthcol = [mainboard[3][0], mainboard[3][1], mainboard[3][2], mainboard[3][3]].reverse();
 
-        new1col = applyTurn(firstcol);
-        new2col = applyTurn(secondcol);
-        new3col = applyTurn(thirdcol);
-        new4col = applyTurn(fourthcol);
+        new1col = applyTurn(firstcol,dir);
+        new2col = applyTurn(secondcol,dir);
+        new3col = applyTurn(thirdcol,dir);
+        new4col = applyTurn(fourthcol,dir);
 
         mainboard[0][3] = new1col[0];
         mainboard[0][2] = new1col[1];
@@ -316,10 +319,10 @@ function advanceTurn(dir) {
         mainboard[3][0] = new4col[3];
     }
 
-    console.log('mainboard: \n');
-    console.log(mainboard);
+    // console.log('mainboard: \n');
+    // console.log(mainboard);
     var comparison = compareArrays(saveboard, mainboard);
-    console.log(comparison);
+    // console.log(comparison);
     if (!comparison) spawnRandom();
     drawGrid();
 }
